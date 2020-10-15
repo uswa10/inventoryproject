@@ -11,7 +11,7 @@
                   <div class="card-body">
 
     {!! Form::open(['action' => 'App\Http\Controllers\DeployController@store',  'method' => 'POST']) !!}
-
+    <label for="cars">Employee:</label>
     <div class="form-group">
       <select class="form-control" name="d_employee">
                 @foreach($employees as $employees)
@@ -19,6 +19,7 @@
                   @endforeach
               </select>
     </div>
+    <label for="cars">Equipment:</label>
     <div class="form-group">
       <select class="form-control" name="d_equipment" >
         @foreach($equipment as $equipment)

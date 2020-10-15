@@ -60,8 +60,9 @@ return view('reports.reports',['stocks'=>$stocks]);
      */
     public function edit($id)
     {
-      $stocks = Stocks::find($id);
-        return view('reports.view')->with('stocks', $stocks);
+      $stocks = Stock::find($id);
+        return view('reports.edit')->with('stocks', $stocks);
+        
     }
 
     /**

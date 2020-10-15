@@ -100,7 +100,7 @@ return view('pages.show',['equipment'=>$equipment]);
   $equipment->e_price = $request->input('e_price');
   $equipment->save();
 
-  return redirect('/pages/show')->with('success','Post Updated.');
+  return redirect('/pages/show')->with('success','Equipment Updated.');
     }
 
     /**

@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Reports;
+use App\Models\Stock;
+use App\Models\Deploy;
 use Illuminate\Http\Request;
 use DB;
 class SaleController extends Controller
@@ -57,7 +59,8 @@ return view('salereports.sale',['deploys'=>$deploys]);
      */
     public function edit($id)
     {
-        //
+      $deploys = Deploy::find($id);
+        return view('salereports.edit')->with('deploys', $deploys);
     }
 
     /**

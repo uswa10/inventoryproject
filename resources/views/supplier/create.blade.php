@@ -32,7 +32,7 @@
 
 
 
-    {{Form::submit('Submit', ['class' => 'btn btn-primary'])}}
+    {{Form::submit('Submit', ['class' => 'btn btn-success'])}}
     {!! Form::close()!!}
   </div>
   </div>

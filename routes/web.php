@@ -33,6 +33,7 @@ Route::get('employee/add', function () {
 
 
 
+
 Route::resource('supplier', 'App\Http\Controllers\SupplierController');
 Route::resource('stock', 'App\Http\Controllers\StockController');
 

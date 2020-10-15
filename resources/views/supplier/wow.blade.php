@@ -1,72 +1,58 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('SUPPLIER LIST') }}</div>
 
+              <!-- Invoice Example -->
+              <!-- Invoice Example -->
+              <div class="container">
+                  <div class="row justify-content-center">
+                      <div class="col-md-8">
+                          <div class="card">
+
+
+                  </div>
+                    <h5>    <div class="card-header">{{ __(' SUPPLIER LIST') }}</div>  </h5> 
                     @if(count($suppliers) > 0)
+                  <div class="table-responsive">
+                    <table class="table align-items-center table-flush">
+                      <thead class="thead-light">
 
-                                    <div class="card-body">
-<a href="/supplier/create" >Add Supplier</a> <br>
-                                      <table class="table table-striped">
-                                             <tbody>
-                                                      <tr>
-                                                          <th class="w-10">Supplier Name</th>
-                                                          <th class="w-10">Contact</th>
-                                                          <th class="w-10">Email</th>
-                                                            <th class="w-10">Address</th>
-                                                            <th class="w-25"></th>
+                        <tr>
+                          <th>Supplier Name</th>
+                          <th>Contact</th>
+                          <th>Email</th>
+                            <th>Address</th>
+  <th></th>
+    <th></th>
 
+                        </tr>
+                      </thead>
 
-                                                      </tr>
+                       @foreach ($suppliers as $suppliers)
 
-                                             </tbody>
-                                      </table>
-                                          @foreach ($suppliers as $suppliers)
+                      <tbody>
+                        <tr>
 
-                                            <table class="table table-striped">
-                                                   <tbody>
-                                                            <tr>
-                                                                <td class="w-50">{{$suppliers->s_name}}</th>
-                                                                <td class="w-10">{{$suppliers->s_contact}}</th>
-                                                                  <td class="w-10">{{$suppliers->s_email}}</th>
-                                                                      <td class="w-25">{{$suppliers->s_address}}</th>
-
-                                                                <td class="w-25">    <a href="/supplier/{{$suppliers->s_id}}/edit" class="btn btn-primary">Edit</a> <br></th>
-
+                          <td>{{$suppliers->s_name}}</td>
+                          <td>{{$suppliers->s_contact}}</td>
+                            <td>{{$suppliers->s_email}}</td>
+                            <td>{{$suppliers->s_address}}</td>
+                            <td>    <a href="/supplier/{{$suppliers->s_id}}/edit" class="btn btn-primary">Edit</a> <br></th>
+                                  <td>  {!!Form::open(['action'=>['App\Http\Controllers\SupplierController@destroy', $suppliers->s_id], 'method'=>'POST', 'class' => 'pull-right'])!!} {{Form::hidden('_method','DELETE')}} {{Form::submit('Delete', ['class' => 'btn btn-danger'])}}   {!!Form::close()!!}</th>
+                        </tr>
 
 
-                                                                  <td class="w-25">  {!!Form::open(['action'=>['App\Http\Controllers\SupplierController@destroy', $suppliers->s_id], 'method'=>'POST', 'class' => 'pull-right'])!!} {{Form::hidden('_method','DELETE')}} {{Form::submit('Delete', ['class' => 'btn btn-danger'])}}   {!!Form::close()!!}</th>
+                      </tbody>
+                      @endforeach
+                    </table>
 
-                                                            </tr>
+                  </div>
+@endif
 
-
-
-
-
-
-
-
-                                          </tbody>
-                                     </table>
-                                          @endforeach
-
-                                        </div>
-                                      @endif
-
-
-
-                      </span>
-  </li>
-                          </ul>
-                    </div>
+                  <div class="card-footer"></div>
                 </div>
-            </div>
-        </div>
-    </div>
-</div>
+
+              </div>
+              <!-- Message From Customer-->
 
 @endsection

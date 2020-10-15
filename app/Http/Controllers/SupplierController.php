@@ -101,7 +101,7 @@ class SupplierController extends Controller
     $supplier->s_address = $request->input('s_address');
   $supplier->save();
 
-  return redirect('/supplier/wow')->with('success','Post Updated.');
+  return redirect('/supplier/wow')->with('success','Supplier Updated.');
     }
 
     /**

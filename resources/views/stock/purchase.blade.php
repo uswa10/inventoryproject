@@ -11,14 +11,16 @@
                   <div class="card-body">
 
     {!! Form::open(['action' => 'App\Http\Controllers\StockController@store',  'method' => 'POST']) !!}
-
+    <label for="cars">Supplier:</label>
     <div class="form-group">
       <select class="form-control" name="stock_sname">
+
                 @foreach($suppliers as $suppliers)
                 <option value="{{ $suppliers->s_name }}">{{ $suppliers->s_name }}</option>
                   @endforeach
               </select>
     </div>
+    <label for="cars">Equipment:</label>
     <div class="form-group">
       <select class="form-control" name="stock_ename" >
         @foreach($equipment as $equipment)
@@ -54,7 +56,7 @@
 
 
 
-    
+
 
 
 

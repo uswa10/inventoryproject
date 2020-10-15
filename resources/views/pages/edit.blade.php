@@ -6,7 +6,7 @@
       <div class="row justify-content-center">
           <div class="col-md-8">
               <div class="card">
-                  <div class="card-header">{{ __('EDIT EQUIPMENT') }}</div>
+                  <div class="card-header">{{ __('EDIT ITEM') }}</div>
 
                   <div class="card-body">
 
@@ -14,8 +14,8 @@
                       {!! Form::open(['action' => ['App\Http\Controllers\EquipmentController@update',$equipment->e_id], 'method' => 'POST']) !!}
 
                       <div class="form-group">
-                        {{Form::label('e_name','Equipment Name')}}
-                        {{Form::text('e_name',$equipment->e_name,['classes'=>'form-control', 'placeholder'=>'Equipment Name' ])}}
+                        {{Form::label('e_name','Item Name')}}
+                        {{Form::text('e_name',$equipment->e_name,['classes'=>'form-control', 'placeholder'=>'Item Name' ])}}
                       </div>
                       <div class="form-group">
                         {{Form::label('e_price','Price')}}

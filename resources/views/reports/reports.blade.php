@@ -6,10 +6,10 @@
       <div class="row justify-content-center">
           <div class="col-md-8">
               <div class="card">
-                  <div class="card-header">{{ __(' PURCHASE REPORTS') }}</div>
 
 
-                  <div class="card-body">
+</div>
+  <h5>    <div class="card-header">{{ __(' PURCHASE REPORTS') }}</div>  </h5>
                     @if(count($stocks) > 0)
 
                                     <div class="card-body">
@@ -19,11 +19,10 @@
                                                       <tr>
                                                           <th>Equipment Name</th>
                                                           <th>Supplier Name</th>
-                                                            <th>Quantity</th>
-                                                              <th>Price</th>
-                                                              <th >Total Price</th>
+
                                                             <th >Date</th>
                                                               <td class="w-25">
+
                                                       </tr>
 
                                              </tbody>
@@ -33,13 +32,11 @@
                                           <table class="table table-hover">
                                                    <tbody>
                                                             <tr>
-                                                                <td class="w-15">{{$stocks->stock_ename}}</th>
-                                                                <td class="w-15">{{$stocks->stock_sname}}</th>
-                                                                  <td class="w-15">{{$stocks->stock_quantity}}</th>
-                                                                    <td class="w-15">{{$stocks->stock_price}}</th>
-                                                                      <td>{{$stocks->stock_tprice}}</th>
-                                                                          <td>{{$stocks->stock_bdate}}</th>
+                                                                <td class="w-25">{{$stocks->stock_ename}}</th>
+                                                                <td class="w-25">{{$stocks->stock_sname}}</th>
 
+                                                                          <td class="w-10">{{$stocks->stock_bdate}}</th>
+                                          <td>    <a href="/reports/{{$stocks->stock_id}}/edit" class="btn btn-primary">View</a> <br></th>
 
                                                             </tr>
 

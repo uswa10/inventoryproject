@@ -1,71 +1,60 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('EQUIPMENT LIST') }}</div>
-<div class="card-body">
-<a href="/pages/create" >Add Equipment</a> <br>
+
+              <!-- Invoice Example -->
+              <div class="container">
+                  <div class="row justify-content-center">
+                      <div class="col-md-8">
+                          <div class="card">
+
+
+  </div>
+    <h5>    <div class="card-header">{{ __(' EQUIPMENT LIST') }}</div>  </h5>
                     @if(count($equipment) > 0)
+                  <div class="table-responsive">
+                    <table class="table align-items-center table-flush">
+                      <thead class="thead-light">
+
+                        <tr>
+                          <th>Equipment Name</th>
+                          <th>Price</th>
+                          <th>Selling Price</th>
+                          <th>Stock</th>
+  <th></th>
+    <th></th>
+                        </tr>
+                      </thead>
+
+                       @foreach ($equipment as $equipment)
+
+                      <tbody>
+                        <tr>
+
+                          <td>{{$equipment->e_name}}</td>
+                            <td>{{$equipment->e_price}}</td>
+                          <td>{{$equipment->e_sellingprice}}</td>
+                            <td>{{$equipment->e_stock}}</td>
+
+                            <td>    <a href="/pages/{{$equipment->e_id}}/edit" class="btn btn-primary">Edit</a> <br></th>
+
+                        </tr>
 
 
+                      </tbody>
+                      @endforeach
+                    </table>
 
-                                      <table class="table table-striped">
-                                             <tbody>
-                                                      <tr>
-                                                          <th class="w-150">Equipment Name</th>
-                                                          <th class="w-150">Price</th>
-                                                          <th class="w-25">Stock</th>
-                                                            <th class="w-25"></th>
+                  </div>
+@endif
 
-
-                                                      </tr>
-
-                                             </tbody>
-                                      </table>
-                                          @foreach ($equipment as $equipment)
-
-                                          <table class="table table-hover">
-                                                   <tbody>
-                                                            <tr>
-                                                                <td class="w-50">{{$equipment->e_name}}</th>
-                                                                <td class="w-50">{{$equipment->e_sellingprice}}</th>
-                                                                  <td class="w-50">{{$equipment->e_stock}}</th>
-                                                                <td>    <a href="/pages/{{$equipment->e_id}}/edit" class="btn btn-primary">Edit</a> <br></th>
-
-
-
-                                                                  <td>  {!!Form::open(['action'=>['App\Http\Controllers\EquipmentController@destroy', $equipment->e_id], 'method'=>'POST', 'class' => 'pull-right'])!!} {{Form::hidden('_method','DELETE')}} {{Form::submit('Delete', ['class' => 'btn btn-danger'])}}   {!!Form::close()!!}</th>
-
-
-                                                            </tr>
-
-
-
-
-
-
-
-
-                                          </tbody>
-                                     </table>
-                                          @endforeach
-
-                                        </div>
-                                      @endif
-
-
-
-                      </span>
-  </li>
-                          </ul>
-                    </div>
+                  <div class="card-footer"></div>
                 </div>
+              </div>
             </div>
+          </div>
         </div>
-    </div>
-</div>
+      </div>
+              <!-- Message From Customer-->
 
 @endsection

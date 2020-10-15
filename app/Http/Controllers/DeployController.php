@@ -17,7 +17,7 @@ class DeployController extends Controller
      */
     public function index()
     {
-      
+
     }
 
     /**
@@ -82,7 +82,7 @@ DB::table('equipment')
     public function show($id)
     {
         $employees = DB::select('select * from employees');
-      $equipment = DB::select('select * from equipment');
+      $equipment = DB::select('select * from equipment where e_stock > 0');
 
 
 return view('deploy.dcreate',['equipment'=>$equipment, 'employees'=>$employees ]);
